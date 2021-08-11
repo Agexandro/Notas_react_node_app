@@ -1,0 +1,19 @@
+.nota {
+    background-color: royalblue;
+    color: white;
+    border-radius: 6px;
+    padding: 20px;
+    width: 18rem;
+    margin: 5px;
+}
+
+h4 {
+    text-align: center;
+    letter-spacing: 2px;
+    font-size: 24px;
+}
+
+p {
+    letter-spacing: 1px;
+    font-size: 18px;
+}
