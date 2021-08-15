@@ -1,31 +1,18 @@
-import { useEffect, useState } from 'react';
-import Form from './Form';
+import { useContext } from 'react';
+import { NotesContext } from '../NotesContext';
 import Nota from './Nota';
 import './Notas.css';
 
 const Notas = () => {
-    const [notas, setNotas] = useState([]);
-
-    async function getData() {
-        const response = await fetch("/api");
-        const data = await response.json();
-        setNotas(data);
-    }
-
-    useEffect(
-        () => {
-            getData();
-        }, []
-    );
+    const [notas,] = useContext(NotesContext);
 
     return (
         <div>
-            <Form />
             <div className="notas">
                 {
                     notas.map(
                         nota => (
-                            <Nota props={nota} />
+                            <Nota key={nota.titulo} props={nota} />
                         )
                     )
                 }

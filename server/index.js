@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const mysql = require('mysql');
 const cors = require("cors");
+const { response } = require('express');
 
 app.use(cors());
 
@@ -10,7 +11,7 @@ app.use(express.urlencoded({extended:false}));
 app.use(express.json());
 
 const conn = mysql.createConnection({
-    host: '192.168.1.68',
+    host: '192.168.1.72',
     user: 'testguy',
     password: 'root',
     port:'3306'
@@ -35,7 +36,12 @@ conn.query('CREATE TABLE IF NOT EXISTS nota(titulo text not null, contenido text
     if(err) throw err;
     console.log("Tabla creada");
 });
-
+/* 
+conn.query("delete from nota where 1=1", (err, response)=>{
+    if(err) throw err;
+    console.log(response.affectedRows);
+})
+ */
 /* conn.query('insert into nota values ?',[[["nota 1", "contenido 1"],["nota 2","contenido 2"]]],(err, result)=>{
     if(err) throw err;
     console.log("Se han insertado: "+ result.affectedRows+" notas");
@@ -51,11 +57,11 @@ app.get("/api",(req, res)=>{
 app.post("/send",(req, res)=>{
    const values = [req.body.title, req.body.content];
    console.log(values);
-/* 
+
    conn.query('INSERT INTO nota values ?', [[values]], (err, response)=>{
        if(err) throw err;
        console.log(response.affectedRows);
-   }) */
+   }) 
 }
 );
 
