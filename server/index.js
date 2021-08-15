@@ -6,11 +6,11 @@ const cors = require("cors");
 app.use(cors());
 
 //Middlewares
-/* app.use(express.urlencoded({extended:false}));
-app.use(express.json);
- */
+app.use(express.urlencoded({extended:false}));
+app.use(express.json());
+
 const conn = mysql.createConnection({
-    host: '192.168.1.69',
+    host: '192.168.1.68',
     user: 'testguy',
     password: 'root',
     port:'3306'
@@ -49,7 +49,13 @@ app.get("/api",(req, res)=>{
 });
 
 app.post("/send",(req, res)=>{
-   console.log(req.body);
+   const values = [req.body.title, req.body.content];
+   console.log(values);
+/* 
+   conn.query('INSERT INTO nota values ?', [[values]], (err, response)=>{
+       if(err) throw err;
+       console.log(response.affectedRows);
+   }) */
 }
 );
 

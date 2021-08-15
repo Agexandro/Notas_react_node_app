@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import Form from './Form';
 import Nota from './Nota';
 import './Notas.css';
 
@@ -18,14 +19,17 @@ const Notas = () => {
     );
 
     return (
-        <div className="notas">
-            {
-                notas.map(
-                    nota => (
-                        <Nota props ={nota} />
+        <div>
+            <Form />
+            <div className="notas">
+                {
+                    notas.map(
+                        nota => (
+                            <Nota props={nota} />
+                        )
                     )
-                )
-            }
+                }
+            </div>
         </div>
     );
 }
