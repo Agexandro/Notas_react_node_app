@@ -35,14 +35,6 @@ const Form = () => {
         }).catch(err=>{
             console.log(err);
         });
-
-        axios.delete('/delete?title='+"kkj").then( res=>{
-            console.log(res);
-        }).catch(
-            err=>{
-                throw err;
-            }
-        )
     }
 
 

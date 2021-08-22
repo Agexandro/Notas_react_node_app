@@ -71,12 +71,11 @@ app.delete("/delete", (req, res) => {
 
 app.post("/send", (req, res) => {
     const values = [req.body.title, req.body.content];
-    console.log(values);
 
-/*     conn.query('INSERT INTO nota values ?', [[values]], (err, response) => {
+    conn.query('INSERT INTO nota values ?', [[values]], (err, response) => {
         if (err) throw err;
         console.log(response.affectedRows);
-    }) */
+    })
 }
 );
 
